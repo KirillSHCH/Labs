@@ -20,5 +20,10 @@
             Console.WriteLine("Нажмите любую клавишу для завершения");
             Console.ReadKey();
         }
+
+        private int sum(double a,double b)
+        {
+            // TODO: доделать
+        }
     }
 }
