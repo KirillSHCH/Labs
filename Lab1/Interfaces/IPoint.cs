@@ -2,7 +2,7 @@
 {
     public interface IPoint
     {
-        string Location { get; set; }
+        string? Location { get; set; }
 
         double Distance { get; set; }
     }

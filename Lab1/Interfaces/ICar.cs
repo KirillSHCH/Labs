@@ -13,6 +13,11 @@
 
         double FuelConsumption { get; set; }
 
+        string Type { get; }
+
+        double CurrentFuelCapacity { get; set; }
+        List<ILoad>? Loads { get; set; }
+
         // Methods
         void DriveToPoint(IPoint point);
         void FuelUp();

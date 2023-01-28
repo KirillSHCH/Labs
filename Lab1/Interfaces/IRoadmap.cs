@@ -3,7 +3,7 @@
     public interface IRoadmap
     {
         // Properties
-        List<IPoint> Points { get; set; }
+        List<IPoint>? Points { get; set; }
 
         // Methods
     }

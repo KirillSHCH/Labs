@@ -6,5 +6,11 @@ namespace Lab1.Classes
     {
         public double Weight { get; set; }
         public string Name { get; set; }
+
+        public Load(double weight, string name)
+        {
+            Weight = weight;
+            Name = name;
+        }
     }
 }

@@ -3,11 +3,11 @@
 public interface ILogist
 {
     // Properties
-    string Name { get; set; }
+    string? Name { get; set; }
 
     int Age { get; set; }
 
-    List<IDriver> drivers { get; set; }
+    List<IDriver>? Drivers { get; set; }
 
     // Methods
     void SendDriverToPoint(IDriver driver, IPoint point);

@@ -11,14 +11,16 @@
 
         ICar Car { get; set; }
 
-        IRoadmap Roadmap { get; set; }
+        IRoadmap? Roadmap { get; set; }
+
+        int Rest { get; }
 
         // Methods
         void DriveToPoint(IPoint point);
         void FuelUpTheCar();
         void UnloadTheCar();
         void LoadTheCar(List<ILoad> loads);
-        void StopForSleepover();
+        void StopForOvernight();
         void TellCurrentLocation();
     }
 }

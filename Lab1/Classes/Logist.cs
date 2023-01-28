@@ -4,15 +4,15 @@ namespace Lab1.Classes;
 
 public class Logist : ILogist
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Age { get; set; }
-    public List<IDriver> drivers { get; set; }
+    public List<IDriver>? Drivers { get; set; }
 
-    public Logist(string Name, int Age, List<IDriver> drivers)
+    public Logist(string? name, int age, List<IDriver>? drivers = null)
     {
-        this.Name = Name;
-        this.Age = Age;
-        this.drivers = drivers;
+        Name = name;
+        Age = age;
+        Drivers = drivers;
     }
 
     public void FillRoadmap(IRoadmap roadmap, List<IPoint> points)
@@ -22,12 +22,12 @@ public class Logist : ILogist
 
     public void OrderDriverToLoad(IDriver driver, List<ILoad> loads)
     {
-        driver.LoadTheCar(driver.Car, loads);
+        driver.LoadTheCar(loads);
     }
 
     public void OrderDriverToUnload(IDriver driver)
     {
-        driver.UnloadTheCar(driver.Car);
+        driver.UnloadTheCar();
     }
 
     public void RequestCurrentLocationFromDriver(IDriver driver)
@@ -37,16 +37,22 @@ public class Logist : ILogist
 
     public void SendDriverToPoint(IDriver driver, IPoint point)
     {
+        Console.WriteLine($"{Name} отправляет {driver.Name} на машрут");
         driver.DriveToPoint(point);
     }
 
     public void SetFreeDriverOnNewRoadmap(IRoadmap roadmap)
     {
-        foreach (var driver in drivers)
+        if (Drivers == null)
         {
-            if (driver.roadmap == null)
+            throw new Exception("Почему-то так оказалось, что у этого логиста нет Водителей");
+        }
+
+        foreach (IDriver driver in Drivers)
+        {
+            if (driver.Roadmap == null)
             {
-                driver.roadmap = roadmap;
+                driver.Roadmap = roadmap;
             }
         }
     }
