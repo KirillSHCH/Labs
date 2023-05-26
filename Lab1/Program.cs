@@ -223,6 +223,7 @@ namespace Lab1
                 if (filteredDrivers.Count == 0)
                 {
                     Console.WriteLine("Свободные водители кончились");
+
                     break;
                 }
 
